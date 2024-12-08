@@ -8,9 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "hero-image": "url('/Rectangle 2.jpg')", // Make sure path is correct
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#000',
+        accent: '#ff5722',
+        lightGray: '#F0F0F0',
+      },
+      fontFamily: {
+        sans: ['IntegralCF'],
+        satoshi: ['Satoshi'],
       },
     },
   },
