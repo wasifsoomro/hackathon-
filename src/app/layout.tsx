@@ -1,20 +1,19 @@
-import type { Metadata } from "next";
+
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Topbar from "./(components)/Topbar";
-
-// const integralCF = localFont({
-//   src: "/fonts/IntegralCF.woff2", // Path to the font file
-//   variable: "--font-integral",   // Custom CSS variable for the font
-// });
-
-// const satoshi = localFont({
-//   src: "/fonts/Satoshi.woff", // Path to the font file
-//   variable: "--font-satoshi",       // Custom CSS variable for the font
-// });
+import TopBanner from "@/components/layout/Banner/TopBanner";
+import TopNavbar from "@/components/layout/Navbar/TopNavBar";
+import Footer from "@/components/layout/Footer";
+import HolyLoader from "holy-loader";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "Ecomeerce Website",
-  description: "Designed by Muhammad Wasif",
+  title: "SHOP.CO",
+  description: "Created by Muhammad Wasif",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -24,11 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={` antialiased`}  //${integralCF.variable} ${satoshi.variable}
-      >
-            <Topbar />
-        {children}
+      <body>
+        <HolyLoader color="#868686" />
+        <TopBanner />
+        <Providers>
+          <TopNavbar />
+          {children}
+        </Providers>
+        <Footer />
       </body>
     </html>
   );
